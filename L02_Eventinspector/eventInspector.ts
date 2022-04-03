@@ -25,4 +25,11 @@ namespace eventInspector {
         console.log(_event.currentTarget);
         console.log(_event);  
     }
+
+    // define a custom event that bubbles and carries some information
+    //let event: CustomEvent = new CustomEvent("someSpecialType", {bubbles: true, detail: {someKey: someData}});
+    // send the event from some dispatcher
+    //someEventTarget.dispatchEvent(event);
+
+
 }
