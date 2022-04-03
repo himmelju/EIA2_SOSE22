@@ -30,6 +30,6 @@ namespace eventInspector {
     //let event: CustomEvent = new CustomEvent("someSpecialType", {bubbles: true, detail: {someKey: someData}});
     // send the event from some dispatcher
     //someEventTarget.dispatchEvent(event);
-
+    
 
 }
