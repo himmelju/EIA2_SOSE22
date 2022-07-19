@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de" translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <script src="moveable.js" defer></script>
+    <script src="player.js" defer></script>
+    <script src="vector.js" defer></script>
+    <script src="soccer-field.js" defer></script>
+    <script src="global.js" defer></script>
+    <script src="ball.js" defer></script>
+    <script src="player-ui.js" defer></script>
+    <script src="team-ui.js" defer></script>
+    <script src="arbitrator.js" defer></script>
+    <script src="linesman.js" defer></script>
+    <script src="UIHelper.js" defer></script>
+    <script src="ui.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    </style>
+    <title>Football Simulation</title>
+</head>
+
+<body>
+
+    <div id="upper-ui"></div>
+    <canvas>
+        
+    </canvas>
+    <div id="controls"> <button id="game-start">Anpfiff (Leertaste)</button> </div>
+    <div id="team-options">
+        <table>
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th> Heimteam </th>
+                    <th> Auswärtsteam </th>
+                </tr>
+
+            </thead>
+
+            <tbody id="team-body">
+
+            </tbody>
+
+        </table>
+    </div>
+    <div id="options">
+        <input type="checkbox" id="toggle-player-radius" name="player-radius" /> <label for="player-radius">Zeige
+            Wahrnehmungsbereiche</label>
+        <input type="checkbox" id="toggle-player-origin" name="origin-pos" /> <label for="origin-pos">Zeige
+            Originalpositionen</label>
+       
+    </div>
+    <div id="current-player">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+@media only screen and (max-width: 600px) {
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    canvas {
+        width: 100%;
+    }
+}
+
+body {
+
+    font-family: Verdana, Geneva, Tahoma, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+#score-pre,
+#score-post {
+    width: 10px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, .4);
+}
+
+#game-start {
+    width: 400px;
+    background: #1757a5;
+    border: 0;
+    outline: none;
+    padding: 15px;
+    color: white;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}
+
+#upper-ui {
+    width: 100%;
+    float: left;
+}
+
+#options {
+    display: block;
+    ;
+}
+
+#time {
+    margin-left: 100px;
+}
+
+#score {
+    margin: 5px;
+    font-size: 22px;
+}
+
+.is-draggable {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    float: left;
+    border-radius: 90px;
+    color: white;
+    vertical-align: middle;
+    font-size: 8px;
+    text-align: center;
+    background-color: red;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemüsegarten Simulator Endabgabe SoSe22</title>
+
+    <script src="Main.js" defer></script>
+    <script src="Bug.js"></script>
+    <script src="Vegetable.js"></script>
+    <script src="Potato.js"></script>
+    <script src="Broccoli.js"></script>
+    <script src="Carrot.js"></script>
+    <script src="Cucumber.js"></script>
+    <script src="Tomato.js"></script>
+    <script src="Field.js"></script>
+    <script src="Vector.js"></script>
+
+    <link rel="stylesheet" href="./GardenSimulation.css">
+</head>
+
+<body>
+
+    <canvas></canvas> <br>
+    <!-- Infos zu Gemüse anzeigen -->
+    <span id="infos">
+        <h1>Infos: </h1>
+        <p>Reife:
+        <p id="ripe"></p>
+        </p>
+        <p>Wasser:
+        <p id="water"></p>
+        </p>
+        <p>Dünger:
+        <p id="fertilizer"></p>
+        </p>
+    </span>
+    <!-- aktuelles Kapital wird angezeigt -->
+    <span id="capitalDisplay">
+        <p>Kapital:
+            <span id="capital">
+                <p></p>
+            </span>
+        </p>
+    </span>
+    <!-- Actionbar, um zu gießen, düngen und Pestizid zu benutzen -->
+    <span id="actionbar">
+        <ul>
+            <li><img src="Giesskanne.png" id="Giesskanne"></img></li>
+            <li><img src="Duenger.png" id="Duenger"></img></li>
+            <span id="fertilizerPrice">
+                <p>fertilizer</p>
+            </span>
+            <br>
+            <li><img src="Pestizide.png" id="Pestizid"></img></li>
+            <span id="pesticidePrice"><p>pesticide</p></span>
+                
+        </ul>
+    </span>
+    <!-- Vegetablebar unten, um Gemüse zu pflanzen -->
+    <span id="vegetableBar">
+        <img src="tomato.png" id="tomato">
+        <img src="cucumber.png" id="cucumber">
+        <img src="carrot.png" id="carrot">
+        <img src="potato.png" id="potato">
+        <img src="broccoli.png" id="broccoli">
+
+        <!-- Einkaufsspreis -->
+        <span id="tomatoPrice">
+            <p>tomato</p>
+        </span>
+        <span id="cucumberPrice">
+            <p>cucumber</p>
+        </span>
+        <span id="carrotPrice">
+            <p>carrot</p>
+        </span>
+        <span id="potatoPrice">
+            <p>potato</p>
+        </span>
+        <span id="broccoliPrice">
+            <p>broccoli</p>
+        </span>
+        <!-- Verkaufspreis -->
+        <span id="tomatoSellPrice">
+            <p>tomato sell</p>
+        </span>
+        <span id="cucumberSellPrice">
+            <p>cucumber sell</p>
+        </span>
+        <span id="carrotSellPrice">
+            <p>carrot sell</p>
+        </span>
+        <span id="potatoSellPrice">
+            <p>potato sell</p>
+        </span>
+        <span id="broccoliSellPrice">
+            <p>broccoli sell</p>
+        </span>
+
+    </span>
+    <!-- Einstellungsmöglichkeiten -->
+    <span id="startBoardSpan">
+        <form action="index.html" method="post">
+            <div id="settings">
+                <h2>Bestimme dein Startkapital und in welchem Rahmen deine Preise schwanken sollen.</h2>
+                <p>Startkapital:</p>
+                <input type="number" id="startCapital" name="startCapital" step="10" min="50" max="500" value="50">
+
+                <div class="grid">
+                    <div>
+                        <p>Preis für 1x Gemüse</p>
+                        <p>
+                            <label for="vegetablePrice">MIN: </label>
+                            3 <input type="range" min="3" max="15" step="1" class="slider" id="minVegetablePrice"
+                                name="minVegetablePrice"> 15
+                        </p>
+                        <p>
+                            <label for="vegetablePrice">MAX: </label>
+                            16 <input type="range" min="16" max="40" step="1" class="slider" id="maxVegetablePrice"
+                                name="maxVegetablePrice"> 40
+                        </p>
+                        <p>Preis für 1x Dünger</p>
+                        <p>
+                            <label for="fetilizerPrice">MIN: </label>
+                            1 <input type="range" min="1" max="10" step="1" class="slider" id="minFertilizerPrice"
+                                name="minFertilizerPrice"> 10
+                        </p>
+                        <p>
+                            <label for="fetilizerPrice">MAX: </label>
+                            11 <input type="range" min="11" max="20" step="1" class="slider" id="maxfretilizerPrice"
+                                name="maxFertilizerPrice"> 20
+                        </p>
+                    </div>
+                    <div>
+                        <p>Preis für 1x Pestizide</p>
+                        <p>
+                            <label for="pesticidePrice">MIN: </label>
+                            1 <input type="range" min="1" max="10" step="1" class="slider" id="minPesticidePrice"
+                                name="minPesticidePrice"> 10
+                        </p>
+                        <p>
+                            <label for="pesticidePrice">MAX: </label>
+                            11 <input type="range" min="11" max="20" step="1" class="slider" id="maxPesticidePrice"
+                                name="maxPesticidePrice"> 20
+                        </p>
+                        <p>Marktpreis für 1x Setzling</p>
+                        <p>
+                            <label for="seedlingPrice">MIN: </label>
+                            1 <input type="range" min="1" max="5" step="1" class="slider" id="minSeedlingPrice"
+                                name="minSeedlingPrice"> 5
+                        </p>
+                        <p>
+                            <label for="seedlingPrice">MAX: </label>
+                            6 <input type="range" min="6" max="10" step="1" class="slider" id="maxSeedlingPrice"
+                                name="maxSeedlingPrice"> 10
+                        </p>
+                    </div>
+                </div>
+        </form>
+        <br>
+        <!-- Starbutton um Spiel zu starten -->
+        <button id="startButton">Start</button>
+        </div>
+    </span>
+
+
+
+</body>
+
+</html>
